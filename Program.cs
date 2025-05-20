@@ -1,14 +1,24 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿medicamento [] medicamentos = new medicamento [6];
+medicamentos [0] = new medicamento {codigo = "000", nombre= "ASPIRINA", inventario= 50, precio= 2};
+medicamentos [1] = new medicamento {codigo = "001", nombre= "DICLOFENACO", inventario= 45, precio= 5};
+medicamentos [2] = new medicamento {codigo = "002", nombre= "PASIFLORA", inventario= 12, precio= 3};
+medicamentos [3] = new medicamento {codigo = "003", nombre= "PARACETAMOL", inventario= 20, precio= 7};
+medicamentos [4] = new medicamento {codigo = "004", nombre= "SUKROL", inventario= 10, precio= 4};
+medicamentos [5] = new medicamento {codigo = "005", nombre= "GRIPETIN", inventario= 8, precio= 12};
 
-Console.WriteLine("Programa para notas de los Estudiantes");
-string [] nombres = ["Juan","Pedro","Luisa","Adriana","Sofia"];
-int [] notas = [88,75,96,77,59];
-int suma = 0;
+imprimir();
 
-for (int a=0; a<notas.Length; a++)
+void imprimir()
 {
-    Console.WriteLine($"Las notas correspondientes son {a}:" + nombres[a]+  "-" + notas[a]);
+    for (int i = 0; i< medicamentos.Length; i++)
+    {
+        Console.WriteLine($"CODIGO: {medicamentos[i].codigo} NOMBRE:{medicamentos[i].nombre} INVENTARIO:{medicamentos[i].inventario} PRECIO:{medicamentos[i].precio}");
+    }
 }
-
-int promedio = suma/notas.Length;
-Console.WriteLine($"El promedio de las notas es:" + promedio);
+struct medicamento
+{
+    public string codigo;
+    public string nombre;
+    public int inventario;
+    public int precio;
+}
