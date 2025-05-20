@@ -1,11 +1,16 @@
-﻿int numero = 0;
-do
+﻿using System.Runtime.CompilerServices;
+Console.WriteLine("Ingrese un texto:");
+string texto = Console.ReadLine();
+string[] palabras = texto.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+int cantidadDePalabras = palabras.Length;
+for (int i = 0; i < palabras.Length; i++)
 {
-    Console.WriteLine("Ingrese un número para mostrar su tabla de multiplicar");
-    numero = Convert.ToInt32(Console.ReadLine());
-    for (int actual = 1; actual <= 10; actual++)
+    if (palabras[i].Length > 0)
     {
-        Console.WriteLine(numero * actual);
-        Console.WriteLine("La tabla de" + numero + "es");
+        palabras[i] = char.ToUpper(palabras[i][0]) + palabras[i].Substring(1).ToLower();
     }
-}while(true);
+}
+string textoFinal = string.Join(" ", palabras);
+Console.WriteLine("Cantidad de palabras: " + cantidadDePalabras);
+Console.WriteLine("Texto con la primera letra de cada palabra en mayúscula:");
+Console.WriteLine(textoFinal);
