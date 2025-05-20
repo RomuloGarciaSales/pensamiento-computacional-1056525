@@ -1,17 +1,28 @@
-﻿Console.WriteLine("Ingrese la hora actual en formato de 24 horas");
-int Hora= Convert.ToInt16(Console.ReadLine());
-switch (Hora)
+﻿//Adivinar un número aleatorio
+Random generator = new Random();
+int numAleatorio = generator.Next(0, 51);
+int intento;
+Console.WriteLine("Adivina un número entre 0 y 50");
+while (true)
 {
-    case int HA when (HA >= 0 && HA <= 11):
-        Console.WriteLine("Buenos días");
+    Console.WriteLine("Ingresa un número:");
+    intento = int.Parse(Console.ReadLine());
+    
+    if (intento == numAleatorio)
+    {
+        Console.WriteLine("¡Adivinaste el número!");
         break;
-    case int HA when (HA >= 12 && HA <= 18):
-        Console.WriteLine("Buenas tardes");
-        break;
-    case int HA when (HA >= 19 && HA <= 23):
-        Console.WriteLine("Buenas noches");
-        break;
-    default:
-        Console.WriteLine("Porfavor, ingrese una hora válida");
-        break;
+    }
+    else if (intento < numAleatorio)
+    {
+        Console.WriteLine("Número equivocado, el número es mayor, intenta de nuevo");
+    }
+    else if (intento > numAleatorio)
+    {
+        Console.WriteLine("Número equivocado, el número es menor, intenta de nuevo");
+    }
+    else 
+    {
+        Console.WriteLine("Porfavor, ingrese un carácter válido. Ejemplo: 2");
+    }
 }
