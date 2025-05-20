@@ -1,28 +1,11 @@
-﻿//Adivinar un número aleatorio
-Random generator = new Random();
-int numAleatorio = generator.Next(0, 51);
-int intento;
-Console.WriteLine("Adivina un número entre 0 y 50");
-while (true)
+﻿int numero = 0;
+do
 {
-    Console.WriteLine("Ingresa un número:");
-    intento = int.Parse(Console.ReadLine());
-    
-    if (intento == numAleatorio)
+    Console.WriteLine("Ingrese un número para mostrar su tabla de multiplicar");
+    numero = Convert.ToInt32(Console.ReadLine());
+    for (int actual = 1; actual <= 10; actual++)
     {
-        Console.WriteLine("¡Adivinaste el número!");
-        break;
+        Console.WriteLine(numero * actual);
+        Console.WriteLine("La tabla de" + numero + "es");
     }
-    else if (intento < numAleatorio)
-    {
-        Console.WriteLine("Número equivocado, el número es mayor, intenta de nuevo");
-    }
-    else if (intento > numAleatorio)
-    {
-        Console.WriteLine("Número equivocado, el número es menor, intenta de nuevo");
-    }
-    else 
-    {
-        Console.WriteLine("Porfavor, ingrese un carácter válido. Ejemplo: 2");
-    }
-}
+}while(true);
