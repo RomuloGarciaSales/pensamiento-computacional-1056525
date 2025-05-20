@@ -1,24 +1,27 @@
-﻿medicamento [] medicamentos = new medicamento [6];
-medicamentos [0] = new medicamento {codigo = "000", nombre= "ASPIRINA", inventario= 50, precio= 2};
-medicamentos [1] = new medicamento {codigo = "001", nombre= "DICLOFENACO", inventario= 45, precio= 5};
-medicamentos [2] = new medicamento {codigo = "002", nombre= "PASIFLORA", inventario= 12, precio= 3};
-medicamentos [3] = new medicamento {codigo = "003", nombre= "PARACETAMOL", inventario= 20, precio= 7};
-medicamentos [4] = new medicamento {codigo = "004", nombre= "SUKROL", inventario= 10, precio= 4};
-medicamentos [5] = new medicamento {codigo = "005", nombre= "GRIPETIN", inventario= 8, precio= 12};
-
-imprimir();
-
-void imprimir()
+﻿Console.WriteLine("Programa para calcular Volumen de un Cilindro");
+Console.WriteLine("Ingrese el radio y la altura del cilindro");
+double radio = Convert.ToDouble(Console.ReadLine());
+double altura = Convert.ToDouble(Console.ReadLine());
+Volumen cilindro1 = new Volumen(radio, altura);
+cilindro1.MostrarInfo();
+class Volumen
 {
-    for (int i = 0; i< medicamentos.Length; i++)
+    private double Altura;
+    private double Radio;
+    
+    public Volumen(double altura, double radio)
     {
-        Console.WriteLine($"CODIGO: {medicamentos[i].codigo} NOMBRE:{medicamentos[i].nombre} INVENTARIO:{medicamentos[i].inventario} PRECIO:{medicamentos[i].precio}");
+        Altura = altura;
+        Radio = radio;
     }
-}
-struct medicamento
-{
-    public string codigo;
-    public string nombre;
-    public int inventario;
-    public int precio;
+    public double CalcularVolumen()
+    {
+        return Math.PI * Math.Pow(Radio, 2)* Altura;
+    }
+    public void MostrarInfo()
+    {
+        Console.WriteLine($"Altura: {Altura}");
+        Console.WriteLine($"Radio: {Radio}");
+        Console.WriteLine($"Volumen: {(Math.PI * Math.Pow(Radio, 2)* Altura)}");
+    }
 }
